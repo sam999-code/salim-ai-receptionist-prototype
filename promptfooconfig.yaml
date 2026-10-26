@@ -1,0 +1,29 @@
+# Evaluates the actual Python conversation flow with synthetic messages only.
+description: Salim assistant conversation regressions
+prompts:
+  - "{{scenario}}"
+providers:
+  - file://eval_provider.py
+tests:
+  - vars:
+      scenario: burger_price_barber
+    assert:
+      - type: javascript
+        value: "const x=JSON.parse(output); x.diagnostics.length===0 && x.replies[2].toLowerCase().includes('price depends') && x.replies[3].toLowerCase().includes('name')"
+      - type: javascript
+        value: "const x=JSON.parse(output); x.service==='website and app' && x.details.toLowerCase().includes('barber shop') && x.summaries.length===0"
+  - vars:
+      scenario: water_vague
+    assert:
+      - type: javascript
+        value: "const x=JSON.parse(output); x.diagnostics.length===0 && x.summaries.length===0 && x.service==='' && x.details===''"
+  - vars:
+      scenario: clear_website
+    assert:
+      - type: javascript
+        value: "const x=JSON.parse(output); x.diagnostics.length===0 && x.summaries.length===1 && x.summaries[0].includes('Alex Morgan')"
+  - vars:
+      scenario: reservation_change_complaint
+    assert:
+      - type: javascript
+        value: "const x=JSON.parse(output); x.diagnostics.length===0 && x.summaries.length===0 && x.replies[2].toLowerCase().includes('reserve') && x.replies[4].toLowerCase().includes('instead') && x.replies[6].toLowerCase().includes('stop asking')"

@@ -1,0 +1,27 @@
+# Local credentials and configuration. Keep real keys out of Git.
+.env
+.env.*
+!.env.example
+.secrets/
+secrets/
+*credentials*.json
+*credential*.json
+*token*.txt
+*secret*.txt
+*.pem
+*.p12
+*.pfx
+*.key
+ngrok.yml
+config.local.*
+
+# Generated local data and caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.promptfoo/
+promptfoo-results/
+*.sqlite
+*.sqlite3
+*.db
+*.log

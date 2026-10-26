@@ -1,0 +1,2 @@
+# Only needed for `chat_flow_demo.py --smart` or ASSISTANT_MODE=smart.
+anthropic>=0.113,<1
