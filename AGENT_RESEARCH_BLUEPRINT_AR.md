@@ -21,6 +21,8 @@
 
 ملاحظتان من الكود: الجلسات و`SeenMessages` في الذاكرة وتضيع عند إعادة التشغيل؛ و`SmartConversationManager` يمسك قفلًا عامًا أثناء قبول الرسالة وقد ينتظر نداء النموذج، فلا يصلح كما هو لتعدد المحادثات في الإنتاج. الخادم يطبع نصوص العملاء كاملة في نافذة التشغيل؛ نغير هذا قبل استخدامه مع بيانات حقيقية.
 
+كذلك `webhook_receiver.py` يستخدم `http.server` للتعلّم. توثيق Python ينبه إلى أنه غير موصى به للإنتاج لأنه يطبق فحوص أمن أساسية فقط [13]. ننقل واجهة الإنتاج لاحقًا إلى خدمة ويب مُدارة مع اختبار التحقق والتوقيع نفسه، بدل اعتبار نفق `ngrok` وخادم التدريب نشرًا دائمًا.
+
 ## المعمارية المقترحة
 
 ```text
@@ -105,5 +107,6 @@ Assistant: Got it — a website instead of an app. Should visitors be able to re
 10. [Langfuse: Sessions](https://langfuse.com/docs/observability/features/sessions) — تتبع سلسلة محادثة.
 11. **فيديو رسمي من Meta:** [The Architecture of Meta Business Agent on WhatsApp](https://developers.meta.com/resources/videos/architecture-meta-business-agent-whatsapp/) — تصور تجربة الواتساب وربطها بأنظمة العمل؛ منتج Meta المعروض ليس بالضرورة نفس تطبيقنا المخصص.
 12. **عرض مهندس Anthropic:** [How We Build Effective Agents](https://ai.engineer/talks/D7_ipDqhtwk-effective-ai-agents) — اختيار المهام وأدوات agent.
+13. [Python: `http.server`](https://docs.python.org/3/library/http.server.html) — حدود الخادم التعليمي قبل الإنتاج.
 
 **حدّ الدليل:** راجعت المصادر والشفرة الحالية وكتبت قرارًا هندسيًا؛ لم أشغّل تقييم Claude الحي أو تجربة `Prompt Injection` على خدمة منشورة في هذه الجلسة. ترتيب التنفيذ ومعايير القبول أعلاه توصيات للمشروع، وليست ضمانًا بعدم الهلوسة أو الاختراق.
