@@ -32,5 +32,7 @@ WhatsApp / phone event
 - [Anthropic — Tool use with Claude](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview): تعريف الأدوات وعودة `tool_use` إلى التطبيق ليُنفّذها ويتحقق منها.
 - [OWASP — LLM Prompt Injection Prevention](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html): حدود الثقة، فحص الصلاحيات عند الأدوات، وتقليل الامتيازات.
 - [Langfuse — Sessions](https://langfuse.com/docs/observability/features/sessions): تتبع المحادثة عبر أحداث متعددة لمراجعة السلوك؛ نضيفه عندما نصل إلى تشغيل فعلي.
+- [Meta — WhatsApp Developer Hub](https://whatsappbusiness.com/developers/developer-hub/): نقطة البداية الرسمية لـ `Cloud API` و`Webhooks` ومتطلبات التشغيل.
+- [فيديو: How We Build Effective Agents](https://ai.engineer/talks/D7_ipDqhtwk-effective-ai-agents): عرض قصير من مهندس Anthropic عن اختيار المهام المناسبة للـ agent وتصميم أدواته.
 
 **أول درس تالٍ:** سنحدد شركة واحدة وخدمتين فقط، ونكتب بياناتها المعتمدة وأمثلة أسئلة العملاء. ثم نبني `Conversation state` محليًا ونقارن النتائج بأمثلة المحادثات التي فشلت اليوم.
